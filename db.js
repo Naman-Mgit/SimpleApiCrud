@@ -1,8 +1,11 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import mongoose from "mongoose";
 
+const st=process.env.MONGODB_URL || "";
 export async function dbConnect() {
      try {
-        await mongoose.connect('mongodb+srv://naman:UZxEKH7A29ozJMkp@nodeapi.kxn9eir.mongodb.net/')
+        await mongoose.connect(st)
 
         console.log('MongoDB Connected');
      } catch (error) {
